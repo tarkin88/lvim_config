@@ -13,7 +13,7 @@ vim.opt.foldlevel = 5
 vim.opt.cmdheight = 1
 vim.opt.pumblend = 10 -- Popup blend
 vim.opt.joinspaces = false -- No double spaces with join after a dot
--- vim.opt.list = true -- Show some invisible characters (tabs...
+vim.opt.list = true -- Show some invisible characters (tabs...
 
 -- Customization
 -- =========================================
@@ -22,7 +22,7 @@ lvim.builtin.dap.active = false -- change this to enable/disable debugging
 lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = false
 lvim.builtin.telescope.active = false
-lvim.builtin.galaxyline.active = true
+lvim.builtin.galaxyline.active = false
 lvim.builtin.project.active = false
 
 lvim.builtin.nvimtree.side = "left"

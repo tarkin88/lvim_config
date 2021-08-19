@@ -33,6 +33,11 @@ lvim.builtin.nvimtree.auto_open = 0
   if lvim.builtin.dashboard.active then
     require("user.dashboard").config()
   end
+
+  -- Bar bar
+  if lvim.builtin.bufferline.active then
+    require("user.barbar").config()
+  end
 end
 
 return M

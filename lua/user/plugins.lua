@@ -4,12 +4,19 @@ M.config = function()
   lvim.plugins = {
     { "NTBBloodbath/doom-one.nvim" },
     { "vijaymarupudi/nvim-fzf" },
+    { "tweekmonster/startuptime.vim" },
     {
-      "ray-x/lsp_signature.nvim",
+      "ibhagwan/fzf-lua",
       config = function()
-        require("user/lsp_signature").config()
+        require("user.fzf").config()
       end,
-      event = "InsertEnter",
+    },
+    {
+      "folke/trouble.nvim",
+      config = function()
+        require("user.trouble").config()
+      end,
+      event = "BufWinEnter",
     },
     {
       "ethanholz/nvim-lastplace",
@@ -19,14 +26,6 @@ M.config = function()
       event = "BufWinEnter",
       disable = not lvim.builtin.lastplace.active,
     },
-    -- {
-    --   "folke/todo-comments.nvim",
-    --   requires = "nvim-lua/plenary.nvim",
-    --   config = function()
-    --     require("todo-comments").setup()
-    --   end,
-    --   event = "BufRead",
-    -- },
     {
       "phaazon/hop.nvim",
       event = "BufRead",
@@ -35,8 +34,10 @@ M.config = function()
       end,
     },
     {
-      "simrat39/symbols-outline.nvim",
-      cmd = "SymbolsOutline",
+      "hoob3rt/lualine.nvim",
+      config = function()
+        require("user.lualine").config()
+      end,
     },
     {
       "folke/zen-mode.nvim",
@@ -45,32 +46,30 @@ M.config = function()
       end,
       event = "BufRead",
     },
-    {
-      "karb94/neoscroll.nvim",
-      config = function()
-        require("user.neoscroll").config()
-      end,
-    },
-    {
-      "ibhagwan/fzf-lua",
-      config = function()
-        require("user.fzf").config()
-      end,
-    },
+    -- {
+    --   "ray-x/lsp_signature.nvim",
+    --   config = function()
+    --     require("user/lsp_signature").config()
+    --   end,
+    --   event = "InsertEnter",
+    -- },
+    -- {
+    --   "simrat39/symbols-outline.nvim",
+    --   cmd = "SymbolsOutline",
+    -- },
+    -- {
+    --   "karb94/neoscroll.nvim",
+    --   config = function()
+    --     require("user.neoscroll").config()
+    --   end,
+    -- },
+    -- {
+    --   "unblevable/quick-scope",
+    --   config = function()
+    --     require "user.quickscope"
+    --   end,
+    -- },
   }
 end
 
--- {
---      "folke/tokyonight.nvim",
---      config = function()
---        require("user/theme").tokyonight()
---        vim.cmd [[
---      colorscheme tokyonight
---      ]]
---      end,
---      cond = function()
---        local _time = os.date "*t"
---        return (_time.hour >= 0 and _time.hour < 16)
---      end,
---    },
 return M

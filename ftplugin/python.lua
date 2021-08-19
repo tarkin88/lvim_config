@@ -1,14 +1,15 @@
 -- python
-lvim.lsp.diagnostics.virtual_text = true
 lvim.format_on_save = false
+lvim.lsp.diagnostics.virtual_text = false
+vim.opt.foldlevel = 10
 
 lvim.lang.python.formatters = {
   {
-    exe = "black",
+    exe = "yapf",
   },
-  -- {
-  --   exe = "isort",
-  -- },
+  {
+    exe = "isort",
+  },
 }
 
 lvim.lang.python.linters = {

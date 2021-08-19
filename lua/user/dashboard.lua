@@ -24,25 +24,24 @@ M.config = function()
     "         Welcome back          ",
   }
 
-    lvim.builtin.dashboard.custom_section = {
-      a = {
-        description = { "  Find File          " },
-        command = "FzfLua files",
-      },
-      b = {
-        description = { "  Recently Used Files" },
-        command = "FzfLua oldfiles",
-      },
-      c = {
-        description = { "  Find Word          " },
-        command = "FzfLua grep",
-      },
-      d = {
-        description = { "  Marks              " },
-        command = "FzfLua marks",
-      },
-    }
-
+  lvim.builtin.dashboard.custom_section = {
+    a = {
+      description = { "  Find File          " },
+      command = "FzfLua files",
+    },
+    b = {
+      description = { "  Recently Used Files" },
+      command = "FzfLua oldfiles",
+    },
+    c = {
+      description = { "  Find Word          " },
+      command = "FzfLua grep",
+    },
+    d = {
+      description = { "  Marks              " },
+      command = "FzfLua marks",
+    },
+  }
 end
 
 return M
