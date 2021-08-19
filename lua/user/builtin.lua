@@ -1,11 +1,16 @@
 local M = {}
 
 M.config = function()
+  lvim.builtin.nvimtree.side = "left"
+  lvim.builtin.nvimtree.show_icons.git = 1
   lvim.builtin.treesitter.ensure_installed = "maintained"
   lvim.builtin.treesitter.matchup.enable = true
   lvim.builtin.treesitter.ignore_install = { "haskell" }
   lvim.builtin.treesitter.context_commentstring.enable = true
-  lvim.builtin.treesitter.indent = { enable = true, disable = { "yaml", "python" } } -- treesitter is buggy :(
+  lvim.builtin.treesitter.indent = {
+    enable = true,
+    disable = { "yaml", "python" },
+  } -- treesitter is buggy :(
   lvim.builtin.treesitter.incremental_selection = {
     enable = true,
     keymaps = {
@@ -16,13 +21,13 @@ M.config = function()
     },
   }
   lvim.builtin.treesitter.query_linter = {
-    enable = true,
+    enable = false,
     use_virtual_text = true,
     lint_events = { "BufWrite", "CursorHold" },
   }
 
   lvim.builtin.compe.documentation.border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
-lvim.builtin.nvimtree.auto_open = 0
+  lvim.builtin.nvimtree.auto_open = 0
 
   -- Galaxyline
   -- if lvim.builtin.galaxyline.active then
@@ -40,4 +45,5 @@ lvim.builtin.nvimtree.auto_open = 0
   end
 end
 
+lvim.lang.python.lsp.setup.capabilities.textDocument.documentSymbol.hierarchicalDocumentSymbolSupport = false
 return M
