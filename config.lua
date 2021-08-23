@@ -17,12 +17,11 @@ vim.opt.list = true -- Show some invisible characters (tabs...
 
 -- Customization
 -- =========================================
-lvim.builtin.lastplace.active = true
 lvim.builtin.dashboard.active = true
 lvim.builtin.dap.active = false
 lvim.builtin.terminal.active = false
 lvim.builtin.telescope.active = false
-lvim.builtin.galaxyline.active = false
+--lvim.builtin.galaxyline.active = false
 lvim.builtin.project.active = false
 
 

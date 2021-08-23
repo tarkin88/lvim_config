@@ -2,20 +2,16 @@ local M = {}
 
 M.config = function()
   lvim.plugins = {
+    -- { "tweekmonster/startuptime.vim" },
     { "NTBBloodbath/doom-one.nvim" },
     { "vijaymarupudi/nvim-fzf" },
-    -- { "tweekmonster/startuptime.vim" },
+    {"kristijanhusak/vim-carbon-now-sh",
+      event="BufRead"
+    },
     {
       "ibhagwan/fzf-lua",
       config = function()
         require("user.fzf").config()
-      end,
-    },
-    {
-      "hoob3rt/lualine.nvim",
-      event = "BufRead",
-      config = function()
-        require("user.lualine").config()
       end,
     },
     {
@@ -31,7 +27,13 @@ M.config = function()
         require("nvim-lastplace").setup {}
       end,
       event = "BufWinEnter",
-      disable = not lvim.builtin.lastplace.active,
+    },
+    {
+      "folke/zen-mode.nvim",
+      event = "BufRead",
+      config = function()
+        require("user.zen").config()
+      end,
     },
     -- {
     --   "phaazon/hop.nvim",
@@ -40,13 +42,6 @@ M.config = function()
     --     require("user.hop").config()
     --   end,
     -- },
-    {
-      "folke/zen-mode.nvim",
-      event = "BufRead",
-      config = function()
-        require("user.zen").config()
-      end,
-    },
     -- {
     --   "ray-x/lsp_signature.nvim",
     --   config = function()

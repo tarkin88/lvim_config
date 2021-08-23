@@ -16,7 +16,8 @@ M.config = function()
 
   --  F toogles
   -- =========================================
-  lvim.keys.normal_mode["<F2>"] = "<cmd>lua require'core.nvimtree'.toggle_tree()<cr>"
+  lvim.keys.normal_mode["<F2>"] = "<cmd>NvimTreeToggle<cr>"
+  lvim.keys.normal_mode["<F3>"] = "<cmd>CarbonNowSh<cr>"
   lvim.keys.normal_mode["<F4>"] = "<cmd>LspTroubleToggle<cr>"
 
   lvim.keys.normal_mode["<F5>"] = "<cmd>FzfLua files<cr>"

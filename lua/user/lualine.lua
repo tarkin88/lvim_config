@@ -1,85 +1,83 @@
 local M = {}
+local components = require "core.lualine.components"
 
-M.config = function()
-  local status_ok, lline = pcall(require, "lualine")
-  if not status_ok then
-    return
-  end
-  local colors = require "user.colors"
+local user_config = {
+  style = "lvim",
+  options = {
+    icons_enabled = true,
+    component_separators = "",
+    section_separators = "",
+    disabled_filetypes = { "dashboard", "nvim-tree" },
+  },
+  sections = {
+    lualine_a = {
+      components.vi_mode,
+    },
+    lualine_b = {
+    },
+    lualine_c = {
+      "filename",
+    },
+    lualine_x = {
+      components.diff,
+      components.filetype,
+      components.progress,
+      components.location,
+    },
+    lualine_y = {
+      components.diagnostics,
+    },
+    lualine_z = {
+      -- components.scrollbar,
+    },
+  },
+  inactive_sections = {
+    lualine_a = {
+      "filename",
+    },
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {
+      components.branch,
+    },
+    lualine_z = {},
+  },
+  tabline = {},
+  extensions = { "nvim-tree" },
+}
 
-  lline.setup {
+function M.update()
+  local config = lvim.builtin.lualine
+
+  lvim.builtin.lualine = {
+    active = true,
+    style = user_config.style,
     options = {
-      lower = true,
-      theme = "palenight",
-      icons_enabled = true,
-      section_separators = "",
-      disabled_filetypes = { "dashboard", "nvimtree", "" },
-      component_separators = { "" },
+      icons_enabled = user_config.options.icons_enabled,
+      component_separators = user_config.options.component_separators,
+      section_separators = user_config.options.section_separators,
+      disabled_filetypes = user_config.options.disabled_filetypes,
     },
     sections = {
-      lualine_a = {
-        {
-          function()
-            return " "
-          end,
-          left_padding = 0,
-          right_padding = 0,
-        },
-      },
-      lualine_b = {
-        "filename",
-      },
-      lualine_c = {},
-      lualine_x = {
-        {
-          "branch",
-          color = { fg = colors.yellow },
-          icon = " ",
-        },
-        {
-          "diff",
-          symbols = { added = "  ", modified = "柳", removed = " " },
-          color_added = colors.green,
-          color_modified = colors.yellow,
-          color_removed = colors.red,
-        },
-
-        "progress",
-        {
-          "location",
-          left_padding = -1,
-          right_padding = -1,
-        },
-      },
-      lualine_y = {
-        {
-          "diagnostics",
-          icon = " ",
-          sources = { "nvim_lsp" },
-          symbols = { error = " ", warn = " ", info = " ", hint = " " },
-          color_error = colors.red,
-          color_warn = colors.yellow,
-          color_info = colors.cyan,
-        },
-      },
-      lualine_z = {
-        {
-          function()
-            return " "
-          end,
-          left_padding = 0,
-          right_padding = 0,
-        },
-      },
+      lualine_a = user_config.sections.lualine_a,
+      lualine_b = user_config.sections.lualine_b,
+      lualine_c = user_config.sections.lualine_c,
+      lualine_x = user_config.sections.lualine_x,
+      lualine_y = user_config.sections.lualine_y,
+      lualine_z = user_config.sections.lualine_z,
     },
     inactive_sections = {
-      lualine_a = {},
-      lualine_b = {},
-      lualine_c = { "filename" },
-      lualine_x = { "location" },
-      lualine_y = {},
-      lualine_z = {},
+      lualine_a = user_config.inactive_sections.lualine_a,
+      lualine_b = user_config.inactive_sections.lualine_b,
+      lualine_c = user_config.inactive_sections.lualine_c,
+      lualine_x = user_config.inactive_sections.lualine_x,
+      lualine_y = user_config.inactive_sections.lualine_y,
+      lualine_z = user_config.inactive_sections.lualine_z,
     },
+    tabline = user_config.tabline,
+    extensions = user_config.extensions,
+    on_config_done = config.on_config_done,
   }
 end
 

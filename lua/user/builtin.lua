@@ -29,15 +29,16 @@ M.config = function()
   lvim.builtin.compe.documentation.border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
   lvim.builtin.nvimtree.auto_open = 0
 
-  -- Galaxyline
-  -- if lvim.builtin.galaxyline.active then
-  --   require("user.galaxyline").config()
-  -- end
+  -- LuaLine
+  if lvim.builtin.lualine.active then
+    require("user.lualine").update()
+  end
 
   -- Dashboard
   if lvim.builtin.dashboard.active then
     require("user.dashboard").config()
   end
+
 
   -- Bar bar
   if lvim.builtin.bufferline.active then
@@ -45,5 +46,4 @@ M.config = function()
   end
 end
 
-lvim.lang.python.lsp.setup.capabilities.textDocument.documentSymbol.hierarchicalDocumentSymbolSupport = false
 return M
