@@ -13,10 +13,9 @@ local user_config = {
     lualine_a = {
       components.vi_mode,
     },
-    lualine_b = {
-    },
+    lualine_b = {},
     lualine_c = {
-      "filename",
+      { "filename", path = 1 },
     },
     lualine_x = {
       components.diff,
@@ -33,7 +32,7 @@ local user_config = {
   },
   inactive_sections = {
     lualine_a = {
-      "filename",
+      { "filename", path = 1, file_status = true },
     },
     lualine_b = {},
     lualine_c = {},
