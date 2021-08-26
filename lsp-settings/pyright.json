@@ -1,3 +1,6 @@
 {
-  "python.analysis.typeCheckingMode": "off"
+  "python.analysis.typeCheckingMode": "off",
+  "python.analysis.autoSearchPaths": false,
+  "python.analysis.useLibraryCodeForTypes": false,
+  "python.analysis.diagnosticMode": "openFilesOnly"
 }
