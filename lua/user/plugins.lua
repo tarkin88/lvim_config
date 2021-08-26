@@ -5,8 +5,11 @@ M.config = function()
     -- { "tweekmonster/startuptime.vim" },
     { "NTBBloodbath/doom-one.nvim" },
     { "vijaymarupudi/nvim-fzf" },
-    {"kristijanhusak/vim-carbon-now-sh",
-      event="BufRead"
+    { "kristijanhusak/vim-carbon-now-sh", event = "BufRead" },
+    {
+      "iamcco/markdown-preview.nvim",
+      ft = "markdown",
+      run = "cd app && yarn install",
     },
     {
       "ibhagwan/fzf-lua",
@@ -35,6 +38,7 @@ M.config = function()
         require("user.zen").config()
       end,
     },
+
     -- {
     --   "phaazon/hop.nvim",
     --   event = "BufRead",
