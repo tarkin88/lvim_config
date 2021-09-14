@@ -2,15 +2,14 @@ local M = {}
 
 M.config = function()
   lvim.plugins = {
-    -- { "tweekmonster/startuptime.vim" },
-    { "NTBBloodbath/doom-one.nvim" },
-    { "vijaymarupudi/nvim-fzf" },
-    { "kristijanhusak/vim-carbon-now-sh", event = "BufRead" },
     {
-      "iamcco/markdown-preview.nvim",
-      ft = "markdown",
-      run = "cd app && yarn install",
+      "PHSix/nvim-hybrid",
+      config = function()
+        require "hybrid"
+      end,
     },
+    { "kristijanhusak/vim-carbon-now-sh", cmd = "CarbonNowSh" },
+    { "vijaymarupudi/nvim-fzf" },
     {
       "ibhagwan/fzf-lua",
       config = function()
@@ -18,11 +17,19 @@ M.config = function()
       end,
     },
     {
-      "folke/trouble.nvim",
-      event = "BufWinEnter",
+      "danymat/neogen",
       config = function()
-        require("user.trouble").config()
+        require("neogen").setup {
+          enabled = true,
+        }
       end,
+      cmd = "Neogen",
+      requires = "nvim-treesitter/nvim-treesitter",
+    },
+    {
+      "iamcco/markdown-preview.nvim",
+      ft = "markdown",
+      run = "cd app && yarn install",
     },
     {
       "ethanholz/nvim-lastplace",
@@ -33,12 +40,28 @@ M.config = function()
     },
     {
       "folke/zen-mode.nvim",
-      event = "BufRead",
+      cmd = "ZenMode",
       config = function()
         require("user.zen").config()
       end,
     },
-
+    -- {
+    --   "tweekmonster/startuptime.vim",
+    --   cmd = "StartupTime",
+    -- },
+    -- {
+    --   "folke/trouble.nvim",
+    --   cmd = "LspTroubleToggle",
+    --   config = function()
+    --     require("user.trouble").config()
+    --   end,
+    -- },
+    -- {
+    --   "simrat39/symbols-outline.nvim",
+    --   config = function()
+    --     require("user.outline").config()
+    --   end,
+    -- },
     -- {
     --   "phaazon/hop.nvim",
     --   event = "BufRead",
@@ -52,10 +75,6 @@ M.config = function()
     --     require("user/lsp_signature").config()
     --   end,
     --   event = "InsertEnter",
-    -- },
-    -- {
-    --   "simrat39/symbols-outline.nvim",
-    --   cmd = "SymbolsOutline",
     -- },
     -- {
     --   "karb94/neoscroll.nvim",

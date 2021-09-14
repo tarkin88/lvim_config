@@ -3,10 +3,11 @@ local M = {}
 M.config = function()
   lvim.builtin.nvimtree.side = "left"
   lvim.builtin.nvimtree.show_icons.git = 1
-  lvim.builtin.treesitter.ensure_installed = "maintained"
+  lvim.builtin.treesitter.ensure_installed = {"python", "lua", "json", "bash", "vue"}
   lvim.builtin.treesitter.matchup.enable = true
   lvim.builtin.treesitter.ignore_install = { "haskell" }
   lvim.builtin.treesitter.context_commentstring.enable = true
+
   lvim.builtin.treesitter.indent = {
     enable = true,
     disable = { "yaml", "python" },
@@ -26,7 +27,6 @@ M.config = function()
     lint_events = { "BufWrite", "CursorHold" },
   }
 
-  lvim.builtin.compe.documentation.border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
   lvim.builtin.nvimtree.auto_open = 0
 
   -- LuaLine

@@ -8,14 +8,16 @@ M.config = function()
 
   fzf.setup {
     winopts = {
-      split = "new", -- open in a split instead?
-      win_height = 0.4, -- window height
-      win_width = 0.50, -- window width
-      win_row = 0.10,
+      -- split = "new", -- ope in a split instead?
+      win_height = 0.6, -- window height
+      win_width = 0.90, -- window width
+      win_row = 0.1,
       win_border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
     },
     fzf_layout = "reverse",
     preview_opts = "hidden",
+    preview_horizontal = "right:30%", -- right|left:size
+    preview_layout = "flex", -- horizontal|vertical|flex
     files = {
       prompt = "Files❯ ",
       file_icons = false,

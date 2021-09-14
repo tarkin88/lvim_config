@@ -11,23 +11,25 @@ local user_config = {
   },
   sections = {
     lualine_a = {
-      components.vi_mode,
+      components.modes,
     },
-    lualine_b = {},
-    lualine_c = {
+    lualine_b = {
       { "filename", path = 1 },
     },
+    lualine_c = {
+    },
     lualine_x = {
+      components.branch,
       components.diff,
       components.filetype,
-      components.progress,
+      -- components.progress,
       components.location,
     },
     lualine_y = {
       components.diagnostics,
     },
     lualine_z = {
-      -- components.scrollbar,
+      components.scrollbar,
     },
   },
   inactive_sections = {

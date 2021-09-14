@@ -26,12 +26,12 @@ M.config = function()
 
   lvim.builtin.dashboard.custom_section = {
     a = {
-      description = { "  Find File          " },
-      command = "FzfLua files",
-    },
-    b = {
       description = { "  Recently Used Files" },
       command = "FzfLua oldfiles",
+    },
+    b = {
+      description = { "  Find File          " },
+      command = "FzfLua files",
     },
     c = {
       description = { "  Find Word          " },
