@@ -17,7 +17,7 @@ M.config = function()
     flip_columns = 120, -- #cols to switch to horizontal on flex
     grep = {
       rg_opts = "--hidden --column --line-number --no-heading "
-        .. "--color=always --smart-case -g '!{.git,node_modules,autoload,.venv}/*' --glob '!.git/**' --files",
+        .. "--color=always --smart-case -g '!{.git,node_modules,autoload,.venv}/*' --glob '!.git/**'",
     },
   }
 end
