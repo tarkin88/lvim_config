@@ -7,30 +7,17 @@ M.config = function()
   end
 
   fzf.setup {
-    winopts = {
-      -- split = "new", -- ope in a split instead?
-      win_height = 0.6, -- window height
-      win_width = 0.90, -- window width
-      win_row = 0.1,
-      win_border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-    },
-    fzf_layout = "reverse",
-    preview_opts = "hidden",
-    preview_horizontal = "right:30%", -- right|left:size
-    preview_layout = "flex", -- horizontal|vertical|flex
-    files = {
-      prompt = "Files❯ ",
-      file_icons = false,
-    },
+    fzf_layout = "reverse", -- fzf '--layout=' options
+    fzf_args = "", -- adv: fzf extra args, empty unless adv
+    preview_border = "noborder", -- border|noborder
+    preview_wrap = "nowrap", -- wrap|nowrap
+    preview_opts = "hidden", -- hidden|nohidden
+    preview_vertical = "down:0%", -- up|down:size
+    preview_layout = "vertical", -- horizontal|vertical|flex
+    flip_columns = 120, -- #cols to switch to horizontal on flex
     grep = {
-      prompt = "Rg❯ ",
-      input_prompt = "Grep For❯ ",
-      -- cmd               = "rg --vimgrep",
       rg_opts = "--hidden --column --line-number --no-heading "
-        .. "--color=always --smart-case -g '!{.git,node_modules}/*'",
-      git_icons = true, -- show git icons?
-      file_icons = false, -- show file icons?
-      color_icons = true, -- colorize file|git icons
+        .. "--color=always --smart-case -g '!{.git,node_modules,autoload,.venv}/*' --glob '!.git/**' --files",
     },
   }
 end
