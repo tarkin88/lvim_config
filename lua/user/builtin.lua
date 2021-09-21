@@ -29,6 +29,10 @@ M.config = function()
 
   lvim.builtin.nvimtree.auto_open = 0
 
+  if lvim.builtin.telescope.active then
+    require("user.telescope").config()
+  end
+
   -- LuaLine
   if lvim.builtin.lualine.active then
     require("user.lualine").config()
