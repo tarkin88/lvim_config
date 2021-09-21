@@ -31,7 +31,7 @@ M.config = function()
 
   -- LuaLine
   if lvim.builtin.lualine.active then
-    require("user.lualine").update()
+    require("user.lualine").config()
   end
 
   -- Dashboard
@@ -39,11 +39,6 @@ M.config = function()
     require("user.dashboard").config()
   end
 
-
-  -- Bar bar
-  if lvim.builtin.bufferline.active then
-    require("user.barbar").config()
-  end
 end
 
 return M

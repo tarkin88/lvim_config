@@ -14,7 +14,7 @@ M.config = function()
   lvim.lsp.diagnostics.virtual_text = false
   lvim.lang.python.formatters = {
     {
-      exe = "yapf",
+      exe = "black",
     },
     {
       exe = "isort",

@@ -11,9 +11,9 @@ M.config = function()
 
   -- Navigation
   -- =========================================
-  lvim.keys.normal_mode["<M-Tab>"] = "<cmd>BufferNext<cr>"
-  lvim.keys.normal_mode["<M-S-Tab>"] = "<cmd>BufferPrevious<cr>"
-  lvim.keys.normal_mode["<M-Down>"] = "<cmd>BufferClose<cr>"
+  lvim.keys.normal_mode["<M-Tab>"] = "<cmd>BufferLineCycleNext<cr>"
+  lvim.keys.normal_mode["<M-S-Tab>"] = "<cmd>BufferLineCyclePrev<cr>"
+  lvim.keys.normal_mode["<M-Down>"] = "<cmd>BufferLinePickClose<cr>"
   lvim.keys.normal_mode["<C-p>"] = "<cmd>FzfLua files<cr>"
 
   --  Diagnostics

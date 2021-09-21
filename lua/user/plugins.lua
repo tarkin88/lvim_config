@@ -8,6 +8,13 @@ M.config = function()
         require "hybrid"
       end,
     },
+    {
+      "akinsho/bufferline.nvim",
+      config = function()
+        require("user.bufferline").config()
+      end,
+      requires = "kyazdani42/nvim-web-devicons",
+    },
     { "kristijanhusak/vim-carbon-now-sh", cmd = "CarbonNowSh" },
     { "vijaymarupudi/nvim-fzf" },
     {

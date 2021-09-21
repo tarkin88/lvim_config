@@ -23,6 +23,7 @@ lvim.builtin.terminal.active = false
 lvim.builtin.telescope.active = false
 --lvim.builtin.galaxyline.active = false
 lvim.builtin.project.active = false
+lvim.builtin.bufferline.active = false
 
 -- additional Builtin
 -- =========================================
