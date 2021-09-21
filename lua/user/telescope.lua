@@ -21,7 +21,7 @@ M.config = function()
   -- =========================================
   lvim.builtin.telescope.defaults = {
     buffer_previewer_maker = new_maker,
-    path_display = { shorten = 10 },
+    path_display = { shorten = 15 },
     windblend = 6,
     layout_strategy = "horizontal",
     layout_config = {
@@ -67,6 +67,7 @@ M.config = function()
       "%.svg",
       "%.otf",
       "%.ttf",
+      "%COMMIT_*",
     },
   }
 end
